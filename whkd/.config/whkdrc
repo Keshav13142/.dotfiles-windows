@@ -3,15 +3,19 @@
 # General
 alt + q                 : komorebic close
 alt + f                 : komorebic toggle-maximize
-alt + o                 : taskkill /f /im whkd.exe && Start-Process whkd -WindowStyle hidden # Reload whkd configuration
+alt + shift + c         : taskkill /f /im whkd.exe && Start-Process whkd -WindowStyle hidden # Reload whkd configuration
 alt + shift + r         : komorebic retile
 alt + shift + m         : komorebic manage
 alt + shift + q         : komorebic stop
+alt + shift + space     : komorebic toggle-float
 
 # Apps
 alt + w                 : start brave
 alt + e                 : start explorer
 alt + return            : start wezterm-gui
+alt + o                 : start "C:\Users\skesh\AppData\Local\Obsidian\Obsidian.exe"
+alt + a 								: start "C:\Users\skesh\AppData\Local\authy\Authy Desktop.exe"
+alt + b 								: start "C:\Users\skesh\AppData\Local\Programs\Bitwarden\Bitwarden.exe"
 
 # Focus windows
 alt + h                 : komorebic focus left
