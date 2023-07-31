@@ -156,3 +156,4 @@ Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'Long
 Install-Module PowerShellGet -Force -AllowClobberc
 Install-Module PSReadLine -AllowPrerelease -Force
 Install-Module -Name PSFzf
+Install-Module -Name PSDotFiles

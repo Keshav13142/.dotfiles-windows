@@ -226,9 +226,7 @@ return {
 		{ action = act.ResetFontSize, mods = "CTRL", key = "0" },
 
 		-- Full screen
-		{ action = act.Nop, mods = "ALT", key = "Enter" },
 		{ action = act.ToggleFullScreen, key = "F11" },
-		{ action = act.ToggleFullScreen, mods = "ALT", key = "f" },
 	},
 
 	-- https://github.com/keshav13142
