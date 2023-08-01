@@ -16,6 +16,7 @@ alt + return            : start wezterm-gui
 alt + o                 : start "C:\Users\skesh\AppData\Local\Obsidian\Obsidian.exe"
 alt + a 								: start "C:\Users\skesh\AppData\Local\authy\Authy Desktop.exe"
 alt + b 								: start "C:\Users\skesh\AppData\Local\Programs\Bitwarden\Bitwarden.exe"
+alt + shift + f 				: start "C:\Program Files\Everything 1.5a\Everything64.exe"
 
 # Focus windows
 alt + h                 : komorebic focus left
