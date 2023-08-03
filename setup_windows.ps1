@@ -41,6 +41,7 @@ $winget_pkgs =
 "Rustlang.Rust.MSVC",
 "Schniz.fnm",
 "sharkdp.bat",
+"sharkdp.fd",
 "SomePythonThings.WingetUIStore",
 "Starship.Starship",
 "SyncTrayzor.SyncTrayzor",
