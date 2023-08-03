@@ -161,11 +161,17 @@ Set-Alias -Name op -Value open
 Set-Alias -Name su -Value admin
 Set-Alias -Name sudo -Value admin
 Set-Alias -Name time -Value Measure-Command
-Set-Alias -Name v -Value lvim
+$lvimPath = "$ENV:USERPROFILE\.local\bin\lvim.ps1"
+if (Test-Path $lvimPath -PathType Leaf) {
+  Set-Alias lvim "$lvimPath"
+  Set-Alias -Name v -Value lvim
+}
+else {
+  Set-Alias -Name v -Value nvim
+}
 Set-Alias ".." Set-ParentLocation
 Set-Alias head 'C:\Program Files\Git\usr\bin\head.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
-Set-Alias lvim 'C:\Users\skesh\.local\bin\lvim.ps1'
 Set-Alias mkd New-Dir
 Set-Alias tail 'C:\Program Files\Git\usr\bin\tail.exe'
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
