@@ -332,6 +332,7 @@
   "vim.visualstar": true,
 
   "window.autoDetectHighContrast": false,
+  "window.commandCenter": false,
   "window.customMenuBarAltFocus": false,
   "window.enableMenuBarMnemonics": false,
   "window.menuBarVisibility": "toggle",
