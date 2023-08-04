@@ -9,6 +9,7 @@ $winget_pkgs =
 "7zip.7zip",
 "ajeetdsouza.zoxide",
 "AntibodySoftware.WizTree",
+"AutoHotkey.AutoHotkey",
 "Balena.Etcher",
 "Bitwarden.Bitwarden",
 "Brave.Brave",

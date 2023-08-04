@@ -366,5 +366,6 @@
       "fileMatch": ["komorebi.json"],
       "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json"
     }
-  ]
+  ],
+  "AutoHotkey2.InterpreterPath": "C:\\Users\\skesh\\AppData\\Local\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe"
 }
