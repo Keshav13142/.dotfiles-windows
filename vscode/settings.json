@@ -99,7 +99,14 @@
   "files.defaultLanguage": "markdown",
   "files.exclude": { "**/node_modules": true },
   "files.hotExit": "onExitAndWindowClose",
-  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/.hg/store/**": true
+  },
+  "files.eol": "\n",
 
   "git.openRepositoryInParentFolders": "never",
 
