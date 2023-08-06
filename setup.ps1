@@ -109,10 +109,6 @@ Function Install-Wsl {
   }
 }
 
-Function Write-Pkg ($name) {
-  Write-Host "Installing $($name.split(".")[1]) ..." -ForegroundColor Cyan
-}
-
 Function Install-Pkgs ($obj) {
   if (!$obj) {
     Write-Host "Invalid selection" -ForegroundColor red
@@ -121,7 +117,7 @@ Function Install-Pkgs ($obj) {
   Write-Host "#### Installing $($obj.Type) ####" -ForegroundColor Yellow
   if ($obj.Winget) {
     foreach ($pkg in $obj.Winget) {
-      Write-Pkg($pkg)
+      Write-Host "Installing $($pkg.split(".")[1]) ..." -ForegroundColor Cyan
       winget install --id=$pkg --source winget --exact --silent --accept-package-agreements 4>&1>$null
     }
   }
