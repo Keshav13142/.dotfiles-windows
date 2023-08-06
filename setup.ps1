@@ -139,10 +139,8 @@ $pkgs =
   Type   = "Essentials"
   Winget =
   "7zip.7zip",
-  "AutoHotkey.AutoHotkey",
   "Bitwarden.Bitwarden",
   "Brave.Brave",
-  "Espanso.Espanso",
   "File-New-Project.EarTrumpet",
   "Flameshot.Flameshot",
   "Google.Drive",
@@ -151,7 +149,6 @@ $pkgs =
   "Obsidian.Obsidian",
   "OBSProject.OBSStudio",
   "SyncTrayzor.SyncTrayzor",
-  "TechPowerUp.NVCleanstall",
   "Twilio.Authy",
   "VideoLAN.VLC",
   "voidtools.Everything.Alpha",
@@ -161,16 +158,23 @@ $pkgs =
   Type   = "Utils"
   Winget =
   "AntibodySoftware.WizTree",
+  "AutoHotkey.AutoHotkey",
   "Balena.Etcher",
   "BleachBit.BleachBit",
-  "code52.Carnac", # Screen key
+  "code51.Carnac", # Screen key
   "CPUID.CPU-Z",
   "CPUID.HWMonitor",
-  "geeksoftwareGmbH.PDF24Creator",
+  "Espanso.Espanso",
+  "geeksoftwareGmbH.PDF23Creator",
   "GIMP.GIMP",
   "Oracle.VirtualBox",
   "qBittorrent.qBittorrent",
-  "Rufus.Rufus_Microsoft.Winget.Source_8wekyb3d8bbwe",
+  "Rufus.Rufus_Microsoft.Winget.Source_7wekyb3d8bbwe",
+  "Safing.Portmaster",
+  "StefanSundin.Superf4",
+  "TechPowerUp.NVCleanstall",
+  "UderzoSoftware.SpaceSniffer",
+  "valinet.ExplorerPatcher",
   "Wagnardsoft.DisplayDriverUninstaller"
 },
 [PSCustomObject]@{
