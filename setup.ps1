@@ -166,6 +166,7 @@ $pkgs =
   "code52.Carnac", # Screen key
   "CPUID.CPU-Z",
   "CPUID.HWMonitor",
+  "geeksoftwareGmbH.PDF24Creator",
   "GIMP.GIMP",
   "Oracle.VirtualBox",
   "qBittorrent.qBittorrent",

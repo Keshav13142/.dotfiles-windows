@@ -119,7 +119,7 @@ function Clear-RecycleBin {
 # Create a new directory and enter it
 function New-Dir([String] $path) {
   New-Item $path -ItemType Directory -ErrorAction SilentlyContinue;
-  Set-Location $path 
+  Set-Location $path
 }
 
 # Set a permanent Environment variable, and reload it into $env
@@ -188,7 +188,7 @@ ${function:nh} = {
   Write-Host "nrd => npm run dev"
   Write-Host "nra => npm run android"
   Write-Host "nrb => npm run build"
-  Write-Host "nr  => npm run {name}" 
+  Write-Host "nr  => npm run {name}"
 }
 
 # Github
