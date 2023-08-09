@@ -155,23 +155,16 @@ $pkgs =
   Winget =
   "AntibodySoftware.WizTree",
   "AutoHotkey.AutoHotkey",
-  "Balena.Etcher",
   "BleachBit.BleachBit",
   "code51.Carnac", # Screen key
-  "CPUID.CPU-Z",
-  "CPUID.HWMonitor",
   "Espanso.Espanso",
   "geeksoftwareGmbH.PDF23Creator",
   "GIMP.GIMP",
   "Oracle.VirtualBox",
   "qBittorrent.qBittorrent",
-  "Rufus.Rufus_Microsoft.Winget.Source_7wekyb3d8bbwe",
-  "Safing.Portmaster",
   "StefanSundin.Superf4",
   "TechPowerUp.NVCleanstall",
-  "UderzoSoftware.SpaceSniffer",
-  "valinet.ExplorerPatcher",
-  "Wagnardsoft.DisplayDriverUninstaller"
+  "valinet.ExplorerPatcher"
 },
 [PSCustomObject]@{
   Type   = "Dev Packages"
@@ -212,6 +205,15 @@ $pkgs =
   "EpicGames.EpicGamesLauncher",
   "Valve.Steam"
 }
+
+## Other useful pkgs ##
+# "CPUID.CPU-Z"
+# "Rufus.Rufus_Microsoft.Winget.Source_7wekyb3d8bbwe"
+# "UderzoSoftware.SpaceSniffer"
+# "Safing.Portmaster"
+# "Wagnardsoft.DisplayDriverUninstaller"
+# "CPUID.HWMonitor"
+# "Balena.Etcher"
 
 # Check if Package managers are installed
 Install-Choco
