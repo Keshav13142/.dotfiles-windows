@@ -1,9 +1,10 @@
 ﻿FocusElseActivate(exe, path) {
-  if (WinExist("ahk_exe " exe)) {
+  name:= exe ".exe"
+  if (WinExist("ahk_exe " name)) {
     WinActivate
   }
   else {
-    Run(exe, path)
+    Run(name, path)
   }
 }
 
@@ -12,10 +13,12 @@ LocalPath(path) {
 }
 
 ; Open apps
-!w:: FocusElseActivate("brave.exe", LocalPath("BraveSoftware\Brave-Browser\Application"))
-!f:: FocusElseActivate("Everything64.exe", "C:\Program Files\Everything 1.5a")
-!c:: FocusElseActivate("Code.exe", LocalPath("Programs\Microsoft VS Code"))
-!o:: FocusElseActivate("Obsidian.exe", LocalPath("Obsidian"))
+!w:: FocusElseActivate("brave", LocalPath("BraveSoftware\Brave-Browser\Application"))
+!+f:: FocusElseActivate("Everything64", "C:\Program Files\Everything 1.5a")
+!c:: FocusElseActivate("Code", LocalPath("Programs\Microsoft VS Code"))
+!a:: focuselseactivate("Authy Desktop",localpath("authy"))
+!b:: focuselseactivate("Bitwarden",Localpath("Programs\Bitwarden"))
+!o:: FocusElseActivate("Obsidian", LocalPath("Obsidian"))
 !Enter:: Run "wezterm-gui"
 
 ; Toggle fullscreen in supported apps
