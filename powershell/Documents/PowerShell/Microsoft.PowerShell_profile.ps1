@@ -222,6 +222,21 @@ Set-Alias -Name gp -Value gitPush -Force
 Set-Alias -Name gco -Value gitCheckout -Force
 Set-Alias -Name gcn -Value gitCheckoutNew -Force
 
+$reg_path = "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout"
+$reg_name = "Scancode Map"
+function add_remap() {
+  New-ItemProperty -Path $reg_path -Name $reg_name -PropertyType Binary -Value ([byte[]](
+      0x00, 0x00, 0x00, 0x00,
+      0x00, 0x00, 0x00, 0x00,
+      0x02, 0x00, 0x00, 0x00, # No.of keymaps
+      0x01, 0x00, 0x3A, 0x00, # Remap caps to esc
+      0x00, 0x00, 0x00, 0x00
+    ))
+}
+function rm_remmap {
+  Remove-ItemProperty -Path $reg_path -Name $reg_name
+}
+
 ######################## Exports #########################
 Set-Environment "KOMOREBI_CONFIG_HOME" "$ENV:USERPROFILE\.config\komorebi"
 
