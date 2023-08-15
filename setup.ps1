@@ -147,8 +147,7 @@ $pkgs =
   "SyncTrayzor.SyncTrayzor",
   "Twilio.Authy",
   "VideoLAN.VLC",
-  "voidtools.Everything.Alpha",
-  "xanderfrangos.twinkletray"
+  "voidtools.Everything.Alpha"
 },
 [PSCustomObject]@{
   Type   = "Utils"
@@ -214,6 +213,7 @@ $pkgs =
 # "Wagnardsoft.DisplayDriverUninstaller"
 # "CPUID.HWMonitor"
 # "Balena.Etcher"
+# "xanderfrangos.twinkletray"
 
 # Check if Package managers are installed
 Install-Choco
