@@ -11,56 +11,7 @@ Function Install-Winget {
   }
   else {
     Write-Host "Winget is not installed. Installing Winget...." -ForegroundColor Yellow
-    $ErrorActionPreference = "Stop"
-    $apiLatestUrl = 'https://api.github.com/repos/microsoft/winget-cli/releases/latest'
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-    # Hide the progress bar of Invoke-WebRequest
-    $ProgressPreference = 'SilentlyContinue'
-
-    $desktopAppInstaller = @{
-      fileName = 'Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle'
-      url      = $(((Invoke-WebRequest $apiLatestUrl -UseBasicParsing | ConvertFrom-Json).assets | Where-Object { $_.name -match '^Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle$' }).browser_download_url)
-    }
-
-    $vcLibsUwp = @{
-      fileName = 'Microsoft.VCLibs.x64.14.00.Desktop.appx'
-      url      = 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx'
-    }
-    $uiLibs = @{
-      nupkg = @{
-        fileName = 'microsoft.ui.xaml.2.7.0.nupkg'
-        url      = 'https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.0'
-      }
-      uwp   = @{
-        fileName = 'Microsoft.UI.Xaml.2.7.appx'
-      }
-    }
-    $uiLibs.uwp.file = $PWD.Path + '\' + $uiLibs.uwp.fileName
-    $uiLibs.uwp.zipPath = '*/x64/*/' + $uiLibs.uwp.fileName
-
-    $dependencies = @($desktopAppInstaller, $vcLibsUwp, $uiLibs.nupkg)
-
-    foreach ($dependency in $dependencies) {
-      $dependency.file = $dependency.fileName
-      Invoke-WebRequest $dependency.url -OutFile $dependency.file
-    }
-
-    $uiLibs.nupkg.file = $PWD.Path + '\' + $uiLibs.nupkg.fileName
-    Add-Type -Assembly System.IO.Compression.FileSystem
-    $uiLibs.nupkg.zip = [IO.Compression.ZipFile]::OpenRead($uiLibs.nupkg.file)
-    $uiLibs.nupkg.zipUwp = $uiLibs.nupkg.zip.Entries | Where-Object { $_.FullName -like $uiLibs.uwp.zipPath }
-    [System.IO.Compression.ZipFileExtensions]::ExtractToFile($uiLibs.nupkg.zipUwp, $uiLibs.uwp.file, $true)
-    $uiLibs.nupkg.zip.Dispose()
-
-    Add-AppxPackage -Path $desktopAppInstaller.file -DependencyPath $vcLibsUwp.file, $uiLibs.uwp.file
-
-    Remove-Item $desktopAppInstaller.file
-    Remove-Item $vcLibsUwp.file
-    Remove-Item $uiLibs.nupkg.file
-    Remove-Item $uiLibs.uwp.file
-
-    Write-Host "WinGet installed!" -ForegroundColor Green
+    Invoke-WebRequest https://raw.githubusercontent.com/asheroto/winget-install/master/winget-install.ps1 | Invoke-Expression 4>&1>$null
   }
 }
 
