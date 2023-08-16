@@ -11,7 +11,7 @@ Function Install-Winget {
   }
   else {
     Write-Host "Winget is not installed. Installing Winget...." -ForegroundColor Yellow
-    Invoke-WebRequest https://raw.githubusercontent.com/asheroto/winget-install/master/winget-install.ps1 -UseBasicParsing | Invoke-Expression 4>&1>$null
+    Invoke-WebRequest https://raw.githubusercontent.com/asheroto/winget-install/master/winget-install.ps1 -UseBasicParsing | Invoke-Expression
   }
 }
 
@@ -23,8 +23,8 @@ Function Install-Choco {
   else {
     Write-Host "Chocolatey is not installed. Installing chocolatey...." -ForegroundColor Yellow
     Set-ExecutionPolicy Bypass -Scope Process -Force
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) -ErrorAction Stop 4>&1>$null
-    powershell choco feature enable -n allowGlobalConfirmation 4>&1>$null
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) -ErrorAction Stop
+    powershell choco feature enable -n allowGlobalConfirmation
 
     Write-Host "Chocolatey installed!" -ForegroundColor Green
   }
@@ -48,15 +48,15 @@ Function Install-Wsl {
     Write-Host "WSL is already installed..." -ForegroundColor Green
   }
   Else {
-    wsl --install --no-distribution 4>&1>$null
+    wsl --install --no-distribution
   }
-  wsl --set-default-version 2 4>&1>$null
+  wsl --set-default-version 2
   If ((wsl -l -v) -replace "`0" | Select-String -Pattern "Ubuntu-22.04") {
     Write-Host "Ubuntu 22.04 already installed..." -ForegroundColor Green
   }
   Else {
     Write-Host "Installing Ubuntu 22.04.." -ForegroundColor Cyan
-    wsl --install Ubuntu-22.04 4>&1>$null
+    wsl --install Ubuntu-22.04
   }
 }
 
@@ -69,13 +69,13 @@ Function Install-Pkgs ($obj) {
   if ($obj.Winget) {
     foreach ($pkg in $obj.Winget) {
       Write-Host "Installing $($pkg.split(".")[1]) ..." -ForegroundColor Cyan
-      winget install --id=$pkg --source winget --exact --silent --accept-package-agreements 4>&1>$null
+      winget install --id=$pkg --source winget --exact --silent --accept-package-agreements
     }
   }
   if ($obj.Choco) {
     foreach ($pkg in $obj.Choco) {
       Write-Host "Installing $pkg ..." -ForegroundColor Cyan
-      choco install $pkg -y --limit-output 4>&1>$null
+      choco install $pkg -y --limit-output
     }
   }
   Write-Host ""
