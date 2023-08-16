@@ -11,7 +11,7 @@ Function Install-Winget {
   }
   else {
     Write-Host "Winget is not installed. Installing Winget...." -ForegroundColor Yellow
-    Invoke-WebRequest https://raw.githubusercontent.com/asheroto/winget-install/master/winget-install.ps1 | Invoke-Expression 4>&1>$null
+    Invoke-WebRequest https://raw.githubusercontent.com/asheroto/winget-install/master/winget-install.ps1 -UseBasicParsing | Invoke-Expression 4>&1>$null
   }
 }
 
@@ -21,7 +21,7 @@ Function Install-Choco {
     Write-Host "Chocolatey Already Installed" -ForegroundColor Green
   }
   else {
-    Write-Host "Chocolatey is not installed. Installing Winget...." -ForegroundColor Yellow
+    Write-Host "Chocolatey is not installed. Installing chocolatey...." -ForegroundColor Yellow
     Set-ExecutionPolicy Bypass -Scope Process -Force
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) -ErrorAction Stop 4>&1>$null
     powershell choco feature enable -n allowGlobalConfirmation 4>&1>$null
