@@ -8,7 +8,7 @@
   "[powershell]": { "editor.defaultFormatter": "ms-vscode.powershell" },
   "[prisma]": { "editor.defaultFormatter": "Prisma.prisma" },
   "[rust]": { "editor.defaultFormatter": "rust-lang.rust-analyzer" },
-  "[xml]": { "editor.defaultFormatter": "redhat.vscode-xml" },
+  "[xml]": { "editor.defaultFormatter": "DotJoshJohnson.xml" },
 
   "audioCues.lineHasInlineSuggestion": "off",
 
@@ -128,8 +128,6 @@
   "projectManager.git.baseFolders": ["$home"],
   "projectManager.sortList": "Recent",
 
-  "redhat.telemetry.enabled": false,
-
   "search.collapseResults": "auto",
   "search.defaultViewMode": "list",
   "search.quickOpen.includeHistory": false,
@@ -207,16 +205,20 @@
       "silent": true
     },
 
-    // Rename stuff using LSP
+    // Save with or without formatting
     {
-      "before": ["leader", "r"],
-      "commands": ["editor.action.rename"],
+      "before": ["leader", "w"],
+      "commands": ["workbench.action.files.save"],
+      "silent": true
+    },
+    {
+      "before": ["leader", "W"],
+      "commands": ["workbench.action.files.saveWithoutFormatting"],
       "silent": true
     },
 
     // Nice to haves
     { "before": ["leader", "w"], "commands": [":w!"], "silent": true },
-    // <leader>c seems to have some delay idk why ¯ (ツ)_/¯
     { "before": ["leader", "q"], "commands": [":q!"], "silent": true },
     { "before": ["leader", "x"], "commands": [":x!"], "silent": true },
     {
@@ -238,18 +240,10 @@
     },
 
     // TODO: Paste without copying selection (Does not work as of now)
-    {
-      "before": ["leader", "p"],
-      "after": ["\"_", "d", "P"],
-      "silent": true
-    },
+    { "before": ["leader", "p"], "after": ["\"_", "d", "P"], "silent": true },
 
     // Select next occurence of selected word
-    {
-      "before": ["<c-n>"],
-      "after": ["g", "b"],
-      "silent": true
-    },
+    { "before": ["<c-n>"], "after": ["g", "b"], "silent": true },
 
     // FIXME: Todo tree does not seem to work
     {
@@ -276,7 +270,6 @@
       "commands": ["editor.action.marker.next"],
       "silent": true
     },
-
     // Cycle through tabs
     { "before": ["H"], "commands": [":bprev"], "silent": true },
     { "before": ["L"], "commands": [":bnext"], "silent": true },
@@ -302,7 +295,7 @@
       "silent": true
     },
 
-    // Open/toggle stuff
+    // Open/toggle file explorer
     {
       "before": ["leader", "e"],
       "commands": ["workbench.action.toggleSidebarVisibility"],
@@ -311,6 +304,11 @@
 
     // Lsp stuff
     {
+      "before": ["leader", "r"],
+      "commands": ["editor.action.rename"],
+      "silent": true
+    },
+    {
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"],
       "silent": true
@@ -318,6 +316,11 @@
     {
       "before": ["K"],
       "commands": ["editor.action.showDefinitionPreviewHover"],
+      "silent": true
+    },
+    {
+      "before": ["g", "D"],
+      "commands": ["editor.action.revealDefinitionAside"],
       "silent": true
     }
   ],
@@ -339,15 +342,16 @@
   "vim.visualstar": true,
 
   "window.autoDetectHighContrast": false,
-  "window.commandCenter": false,
   "window.customMenuBarAltFocus": false,
+  "window.commandCenter": false,
   "window.enableMenuBarMnemonics": false,
   "window.menuBarVisibility": "toggle",
   "window.openFoldersInNewWindow": "on",
   "window.restoreFullscreen": true,
 
   "workbench.activityBar.visible": false,
-  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.editorAssociations": { "*.docx": "default" },
   "workbench.editor.enablePreview": true,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.pinnedTabSizing": "compact",
@@ -356,7 +360,6 @@
   "workbench.editor.untitled.hint": "hidden",
   "workbench.editor.untitled.labelFormat": "content",
   "workbench.editor.wrapTabs": true,
-  "workbench.editorAssociations": { "*.docx": "default" },
   "workbench.layoutControl.enabled": false,
   "workbench.list.smoothScrolling": true,
   "workbench.settings.editor": "json",
@@ -368,6 +371,7 @@
   "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": false,
   "window.zoomLevel": 1,
+
   "json.schemas": [
     {
       "fileMatch": ["komorebi.json"],
